@@ -1,0 +1,940 @@
+ 
+        body {
+            background-color: #A78D78;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .cover-utama {
+            position: relative;
+            background-color:  #A78D78;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .wedding-title {
+             font-size: 30px;
+             font-family: 'ibaraRealNova', serif;
+             text-align: center;
+             opacity: 0;
+             transform: translateX(-50px); /* mulai dari kiri */
+             animation: slideInLeft 1s ease-out forwards;
+             animation-delay: 0.5s; /* opsional, tunda animasi setengah detik */
+        }
+
+        .bg-kanan {
+            z-index: 1;
+            position: absolute;
+            left: -20%;
+            top: -25%;
+            width: 2%;
+            height: auto;
+            opacity: 0;
+            transform: translateX(60px); /* mulai dari kanan */
+            animation: slideInRight 1s ease-out forwards;
+            animation-delay: 0.5s; /* opsional: jeda animasi */
+        }
+
+        .bg-kanan-bunga {
+            z-index: 1;
+            position: absolute;
+            left: -16%;
+            bottom: 5%;
+            height: auto;
+            animation: goyangKananKiri 6s ease-in-out infinite;
+            transform-origin: center; /* Titik goyang di tengah */
+        }
+
+        .bg-kiri {
+            z-index: 1;
+            position: absolute;
+            right: 15%;
+            top: -25%;
+            width: 2%;
+            height: auto;
+            opacity: 0;
+            transform: translateX(-50px); /* mulai dari kiri */
+            animation: slideInLeft 1s ease-out forwards;
+            animation-delay: 0.5s; /* opsional, tunda animasi setengah detik */
+        }
+
+        .bg-kiri-bunga {
+            z-index: 1;
+            position: absolute;
+            right: 11%;
+            bottom: 5%;
+            width: 2%;
+            height: auto;
+            animation: goyangKananKiri 6s ease-in-out infinite;
+            transform-origin: center; /* Titik goyang di tengah */
+        }
+
+        .kedua-mempelai {
+             text-align: center;
+             overflow: hidden;
+        }
+
+        .mempelai-img {
+             opacity: 0;
+             transform: translateY(50px) scale(0.8); /* mulai dari bawah dan kecil */
+             animation: masukDariBawah 1.2s ease-out forwards;
+             animation-delay: 0.5s;
+             text-align: center;
+             font-size: 15px;
+        }
+
+        .judul-mempelai {
+             font-size: 40px;
+             font-family: 'Arizonia', cursive;
+             text-align: center;
+             opacity: 0;
+             transform: translateX(60px); /* mulai dari kanan */
+             animation: slideInRight 1s ease-out forwards;
+             animation-delay: 0.5s; /* opsional: jeda animasi */
+        }
+
+        .bunga-coklat {
+            z-index: 1;
+            position: absolute;
+            right: 39%;
+            top: 100px;
+            width: 10%;
+            height: auto;
+            animation: goyangKananKiri 3s ease-in-out infinite;
+            transform-origin: center; /* Titik goyang di tengah */
+        }
+
+        .cover {
+            position: relative;
+            z-index: 0;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-cover {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 30px;
+            background-color: antiquewhite;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .tamu-animation {
+            opacity: 0;
+            transform: scale(0.7); /* mulai dari kecil (jauh) */
+            animation: zoomInForward 1s ease-out forwards;
+            animation-delay: 0.5s;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .btnBuka {
+            margin-top: -3px;
+            padding: 15px;
+            background-color: #6E473B;
+            width: 150px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s; /* Delay animasi setelah load */
+        }
+
+        .btnBuka a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btnBuka:hover {
+            background-color: #291C0E;
+            transform: scale(1.05);
+        }
+
+        .mempelai-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .profil-mempelai {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .profil-mempelai.reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        .bunga-love {
+            z-index: 1;
+            position: absolute;
+            left: 23%;
+            bottom: -850px;
+            width: 8%;
+            height: auto;
+            transform: rotate(-4deg);
+            opacity: 0;
+            transform: translateX(60px); /* mulai dari kanan */
+            animation: slideInRight 1s ease-out forwards;
+            animation-delay: 1s; /* opsional: jeda animasi */
+        }
+
+        .semanggi-3 {
+            z-index: 1;
+            position: absolute;
+            right: 23%;
+            bottom: -450px;
+            width: 8%;
+            height: auto;
+            transform: rotate(-4deg);
+            opacity: 0;
+            transform: translateX(-50px); /* mulai dari kiri */
+            animation: slideInLeft 1s ease-out forwards;
+            animation-delay: 1s; /* opsional, tunda animasi setengah detik */
+        }
+
+
+        .acara {
+           background-color: #cebeb2;
+        }
+        .foto-mempelai {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateX(-50px); /* mulai dari kiri */
+            animation: slideInLeft 1s ease-out forwards;
+            animation-delay: 0.5s; /* opsional, tunda animasi setengah detik */
+        }
+
+        .mempelai-foto {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateX(60px); /* mulai dari kanan */
+            animation: slideInRight 1s ease-out forwards;
+            animation-delay: 0.5s; /* opsional: jeda animasi */
+        }
+
+        .teks-mempelai {
+            max-width: 200px;
+            color: #291C0E;
+            opacity: 0;
+            transform: scale(0.7); /* mulai dari kecil (jauh) */
+            animation: zoomInForward 1s ease-out forwards;
+            animation-delay: 0.5s;
+
+        }
+
+        .teks-mempelai h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #291C0E;
+            font-family: 'loria';
+        }
+
+        .teks-mempelai p {
+            margin: 5px 0;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .dan {
+            font-family: 'Great Vibes', cursive;
+            font-size: 57px;
+            color: #6E473B;
+        }
+
+        h2, p {
+            color: #291C0E;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .kata-kata {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            width: 60%;
+            font-size: 20px;
+            height: 50vh;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 50px;
+            opacity: 0;
+            transform: scale(0.7); /* mulai dari kecil (jauh) */
+            animation: zoomInForward 1s ease-out forwards;
+            animation-delay: 1.15s;
+        }
+
+        .bunga-kanan {
+            z-index: 1;
+            position: absolute;
+            right: -20%;
+            top: -100px;
+            width: -15%;
+            height: auto;
+        }
+
+        .bunga-kiri-bawah {
+            z-index: 1;
+            position: absolute;
+            left: -23%;
+            bottom: -100px;
+            width: -15%;
+            height: auto;
+        }
+
+        .quotes-wrapper {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;  
+            padding-top: 120px; 
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .acara-informasi {
+            background-image: url('./foto/mempelai.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color:  #cebeb2;
+            height: 120vh;
+        }
+
+.falling-flowers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.falling-flowers span {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('./foto/bunga-jatuh.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+.falling-flowers-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.falling-flowers-1 span {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('./foto/bunga-jatuh-2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    top: 110%;
+    transform: translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+        .container-acara {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px 0;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .akad, .resepsi {
+            background-color: white;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10%;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.7); /* mulai dari kecil (jauh) */
+            animation: zoomInForward 1s ease-out forwards;
+            animation-delay: 1.50s;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        } 
+        
+         .akad h2::before {
+             content: "💍";
+        }
+
+        .resepsi h2::before {
+             content: "🗓 ";
+        }
+
+
+       .button-akad a,
+       .button-resepsi a {
+            display: inline-block;
+            margin-top: 10px;
+            width: 150px;
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #291C0E;
+        }
+
+        .countdown-wrapper {
+            margin-top: 40px;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            max-width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown-wrapper h2 {
+            font-size: 28px;
+            margin-top: 10px;
+            font-family: 'Imbue', serif;
+        }
+
+        .timer {
+             display: flex;
+             justify-content: center;
+             gap: 20px;
+             margin-top: 20px;
+             font-family: 'Lora', serif;
+             opacity: 0;
+             transform: translateX(-50px); /* mulai dari kiri */
+             animation: slideInLeft 1s ease-out forwards;
+             animation-delay: 1.30s; /* opsional, tunda animasi setengah detik */
+        }
+
+        .timer div {
+             text-align: center;
+             font-size: 14px;
+        }
+
+        .timer span {
+             display: block;
+             font-size: 32px;
+             font-weight: bold;
+        }
+
+        .lokasi-resepsi iframe {
+             width: 90%;
+             max-width: 600px;
+             height: 300px;
+             border: 0;
+             border-radius: 10px;
+        }
+        
+
+        .galeri {
+             padding: 60px 20px;
+             display: flex;
+             justify-content: center;
+        }
+
+        .foto-galeri {
+             max-width: 520px;
+             width: 100%;
+             display: flex;
+             flex-direction: column;
+             gap: 8px;
+        }
+
+        .foto-galeri img {
+             width: 100%;
+             height: 30vh;
+             border-radius: 6px;
+             object-fit: cover;
+        }
+
+        .galeri-row {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 8px;
+              opacity: 0;
+              transform: scale(0.7); /* mulai dari kecil (jauh) */
+              animation: zoomInForward 1s ease-out forwards;
+              animation-delay: 2s;
+        }
+
+        .maps {
+            position: relative;
+            background-color: #cebeb2;
+            height: 100vh;
+            margin-top: 25px;
+        }
+
+        .lokasi-resepsi {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            padding-top: 40px;
+            padding-bottom: 40px;
+            min-height: 400px;
+            transform: translateX(-50px); /* mulai dari kiri */
+            animation: slideInLeft 1s ease-out forwards;
+            animation-delay: 2.5s; 
+        }
+
+        .hiasan-kiri-atas,
+        .hiasan-kanan-atas {
+            position: absolute;
+            top: -25%;
+            width: 250px;
+            z-index: 1;
+            animation: melayang 4s ease-in-out infinite alternate;
+        }
+
+       .hiasan-kiri-atas {
+            left: 0px;
+           transform: rotate(-10deg);
+        }
+ 
+       .hiasan-kanan-atas {
+           right: 0px;
+           transform: rotate(10deg);
+        }
+
+        .rsvp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background-size: cover;
+            padding: 60px 20px;
+            border-radius: 12px;
+            background-color: #A78D78;
+            height: 95vh;
+        }
+
+    .form-wrapper {
+      background: #6E473B;
+      max-width: 600px;
+      margin-bottom: 50px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: left;
+      opacity: 0;
+      transform: scale(0.7); /* mulai dari kecil (jauh) */
+      animation: zoomInForward 1s ease-out forwards;
+      animation-delay: 2.5s;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #A78D78;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #6b623c;
+    }
+
+    .output-konfirmasi {
+      margin-top: 30px;
+    }
+
+    .konfirmasi-item {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .statistik {
+      font-weight: bold;
+      margin-top: 20px;
+      color: #cebeb2;
+    }
+
+    .penutup-section {
+         background-color: #cebeb2;
+         height: 100vh;
+         display: flex;
+         justify-content: center; /* posisi horizontal */
+         align-items: center;     /* posisi vertikal */
+         text-align: center;  
+         padding: 20px;
+    }
+
+    .penutup {
+         max-width: 800px; /* supaya tidak terlalu lebar di layar besar */
+         width: 100%;
+    }
+
+
+       .bunga-bawah-penutup {
+             text-align: center;
+             margin-bottom: 20px;
+        }
+
+       .bunga-bawah-penutup img {
+              width: 20%; /* ubah ukuran sesuai kebutuhan */
+              height: auto;
+              opacity: 0;
+              transform: scale(0.7); /* mulai dari kecil (jauh) */
+              animation: zoomInForward 1s ease-out forwards;
+              animation-delay: 3s; /* opsional, tunda animasi setengah detik */
+        }
+
+        .thank {
+             opacity: 0;
+             transform: translateX(-50px); /* mulai dari kiri */
+             animation: slideInLeft 1s ease-out forwards;
+             animation-delay: 2.9s; /* opsional, tunda animasi setengah detik */
+        }
+
+        .ucapan {
+            opacity: 0;
+            transform: translateX(60px); /* mulai dari kanan */
+            animation: slideInRight 1s ease-out forwards;
+            animation-delay: 2.9s; /* opsional: jeda animasi */
+        }
+
+        .audio-control {
+            position: fixed;
+            bottom: 5%;
+            right: 5%;
+            background-color: #291C0E;
+            border: none;
+            color: white;
+            font-size: 24px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .audio-control:hover {
+            background-color: #6b623c;
+        }
+        
+        
+
+        @keyframes fadeInUp {
+           0% {
+             opacity: 0;
+             transform: translateY(40px);
+           }
+           100% {
+             opacity: 1;
+             transform: translateY(0);
+           }
+          }
+
+          @keyframes slideInLeft {
+            from {
+              opacity: 0;
+              transform: translateX(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+           }
+
+           @keyframes masukDariBawah {
+             from {
+               opacity: 0;
+               transform: translateY(50px) scale(0.8);
+            }
+             to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+
+          @keyframes slideInRight {
+            from {
+             opacity: 0;
+             transform: translateX(60px);
+          }
+            to {
+             opacity: 1;
+             transform: translateX(0);
+            }
+        }
+
+           @keyframes zoomInForward {
+              0% {
+              opacity: 0;
+              transform: scale(0.7); /* seperti datang dari belakang */
+            }
+              100% {
+               opacity: 1;
+               transform: scale(1);
+            }
+        }
+
+            @keyframes goyangKananKiri {
+               0%   { transform: rotate(0deg); }
+               25%  { transform: rotate(2deg); }
+               50%  { transform: rotate(0deg); }
+               75%  { transform: rotate(-2deg); }
+               100% { transform: rotate(0deg); }
+        }
+
+        @keyframes goyangKiri {
+              0%   { transform: rotate(10deg) translateY(0); }
+              50%  { transform: rotate(-2deg) translateY(-3px); }
+              100% { transform: rotate(10deg) translateY(0); }
+        }
+
+       @keyframes goyangKanan {
+               0%   { transform: rotate(-10deg) translateY(0); }
+               50%  { transform: rotate(2deg) translateY(-3px); }
+               100% { transform: rotate(-10deg) translateY(0); }
+        }
+
+        @keyframes melayang {
+               0%   { transform: translateY(0px) rotate(0deg); }
+               50%  { transform: translateY(5px) rotate(1deg); }
+               100% { transform: translateY(0px) rotate(-1deg); }
+        }
+
+
+    @media (max-width: 768px) {
+    .bg-kanan-bunga,
+    .bg-kiri-bunga {
+        width: 40%;        /* kecilkan bunga agar tidak menutupi */
+        bottom: 5%;
+        opacity: 0.6;       /* transparansi supaya tidak dominan */
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .bg-kanan-bunga {
+        left: -60%;         /* geser sedikit ke luar */
+    }
+
+    .bg-kiri-bunga {
+        right: -0%;
+    }
+
+    .bg-kanan,
+    .bg-kiri {
+        width: 40%;        /* kecilkan bunga agar tidak menutupi */
+        bottom: 5%;
+        opacity: 0.6;       /* transparansi supaya tidak dominan */
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .bg-kanan {
+        left: -100%;
+    }
+
+    .bg-kiri {
+        right: -0%;
+    }
+
+    .bunga-coklat {
+        display: none;
+    }
+
+    .bunga-love {
+        display: none;
+    }
+
+    .semanggi-3 {
+        display: none;
+    }
+
+    .acara-informasi {
+          background-size: cover;
+          background-position: top center;
+          background-repeat: no-repeat;
+          min-height: 160vh;
+    }
+
+    .button-cover {
+        top: -50%;
+    }
+
+    .btnBuka {
+        margin-bottom: -5%;
+    }
+
+    .countdown-wrapper {
+        max-width: 70%;
+    }
+
+    .lokasi-resepsi iframe {
+        height: 250px;
+        width: 90%;
+    }    
+
+    .audio-control {
+        bottom: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .kata-kata {
+       padding-bottom: 20px;
+       max-width: 500%;
+       height: 500px;
+    }
+
+    .bunga-kanan {
+       display: block;
+       position: absolute;
+       top: -30px;
+       right: -34px;
+       width: 150px;
+       height: auto;
+       z-index: 0;
+    }
+
+     .bunga-kiri-bawah {
+        display: block;
+        position: absolute;
+        bottom: -30px;
+        left: -34px;
+        width: 150px;
+        height: auto;
+        z-index: 0;
+    }
+
+    .kata-kata {
+        width: 80%;
+        height: 80vh;
+    }
+
+    .hiasan-kiri-atas,
+    .hiasan-kanan-atas {
+        width: 100px;
+        top: 15px;
+    }
+
+    .hiasan-kiri-atas {
+        left: 5px;
+    }
+
+    .hiasan-kanan-atas {
+        right: 5px;
+    }
+
+    .maps p {
+        font-size: 22px;
+        padding-top: 100px; /* beri jarak dari hiasan */
+    }
+    
+    .maps {
+        height: 80vh;
+    }
+
+    .bunga-coklat-kanan,
+    .bunga-coklat-kiri {
+         position: absolute;
+         width: 60px;
+         height: auto;
+         top: 60px; /* sesuaikan agar dekat dengan tulisan RSVP */
+         z-index: 1;
+         animation: goyangKananKiri 6s ease-in-out infinite;
+         transform-origin: center;
+    }
+
+      .bunga-coklat-kanan {
+         right: 15px;
+    }
+
+      .bunga-coklat-kiri {
+        left: 15px;
+  }
+
+      .bunga-bawah-penutup img {
+       width: 70%; /* perbesar untuk layar kecil */
+  }
+
+  .cover-utama {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .judul-mempelai {
+        font-size: 28px;
+    }
+
+    .countdown-wrapper {
+        max-width: 80%;
+    }
+
+    .cover {
+        height: 100vh;
+    }
+    
+}
+
